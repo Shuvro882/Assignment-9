@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "title": "PUBG Mobile",
+    "coverPhoto": "https://i.ibb.co.com/2RLTkYV/pubg.jpg",
+    "category": "FPS",
+    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps.",
+    "ratings": 4.5,
+    "developer": "Krafton"
+  },
+  {
+    "id": "2",
+    "title": "Hollow Knight",
+    "coverPhoto": "https://i.ibb.co.com/tTcfPMn9/Hollow-Knight.jpg",
+    "category": "Adventure",
+    "downloadLink": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+    "description": "A beautifully hand-drawn indie adventure set in a mysterious underground world filled with insects and heroes.",
+    "ratings": 4.8,
+    "developer": "Team Cherry"
+  },
+  {
+    "id": "3",
+    "title": "Stardew Valley",
+    "coverPhoto": "https://i.ibb.co.com/LDj5P4bn/Stardew-Valley.jpg",
+    "category": "Simulation",
+    "downloadLink": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+    "description": "A relaxing farming and life simulation game where players build farms, relationships, and communities.",
+    "ratings": 4.7,
+    "developer": "ConcernedApe"
+  },
+  {
+    "id": "4",
+    "title": "Celeste",
+    "coverPhoto": "https://i.ibb.co/4Z9wQXk/celeste.jpg",
+    "category": "Platformer",
+    "downloadLink": "https://store.steampowered.com/app/504230/Celeste/",
+    "description": "A challenging platformer about climbing a mountain while facing inner struggles.",
+    "ratings": 4.6,
+    "developer": "Matt Makes Games"
+  },
+  {
+    "id": "5",
+    "title": "Among Us",
+    "coverPhoto": "https://i.ibb.co/7Qyc1X5/among-us.jpg",
+    "category": "Multiplayer",
+    "downloadLink": "https://www.innersloth.com/gameAmongUs.php",
+    "description": "A social deduction game where crewmates complete tasks and impostors try to sabotage them.",
+    "ratings": 4.3,
+    "developer": "InnerSloth"
+  },
+  {
+    "id": "6",
+    "title": "Terraria",
+    "coverPhoto": "https://i.ibb.co.com/RpBQFczR/Terraria.jpg",
+    "category": "Sandbox",
+    "downloadLink": "https://store.steampowered.com/app/105600/Terraria/",
+    "description": "A 2D sandbox adventure game with exploration, building, and combat against monsters.",
+    "ratings": 4.4,
+    "developer": "Re-Logic"
+  },
+  {
+    "id": "7",
+    "title": "Hades",
+    "coverPhoto": "https://i.ibb.co.com/V0QkkbK6/Hades.jpg",
+    "category": "Roguelike",
+    "downloadLink": "https://store.steampowered.com/app/1145360/Hades/",
+    "description": "Battle out of the Underworld in this action-packed roguelike dungeon crawler.",
+    "ratings": 4.9,
+    "developer": "Supergiant Games"
+  },
+  {
+    "id": "8",
+    "title": "Slay the Spire",
+    "coverPhoto": "https://i.ibb.co.com/3Y0MQwBD/Slay-the-Spire.jpg",
+    "category": "Card Game",
+    "downloadLink": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+    "description": "A deck-building roguelike game where players ascend the Spire, crafting a unique deck each run.",
+    "ratings": 4.7,
+    "developer": "MegaCrit"
+  },
+  {
+    "id": "9",
+    "title": "Cuphead",
+    "coverPhoto": "https://i.ibb.co.com/TqMKMFSw/Cuphead.jpg",
+    "category": "Platformer",
+    "downloadLink": "https://store.steampowered.com/app/268910/Cuphead/",
+    "description": "A run-and-gun platformer with hand-drawn 1930s cartoon visuals and challenging boss fights.",
+    "ratings": 4.6,
+    "developer": "Studio MDHR"
+  }
+]

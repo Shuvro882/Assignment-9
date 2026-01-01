@@ -1,10 +1,15 @@
 import React from 'react';
+import Banner from '../Components/Banner';
+import PopularGames from '../Components/PopularGames';
+import Newsletter from '../Components/Newsletter';
 
 const Home = () => {
   return (
-     <h1 className="text-3xl text-center mt-10">
-      Gamehub Home
-    </h1>
+    <>
+      <Banner />
+      <PopularGames />
+      <Newsletter />
+    </>
   );
 };
 
