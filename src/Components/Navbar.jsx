@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import MyLink from "./MyLink";
 
 
 const Navbar = () => {
@@ -15,17 +16,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/" className="hover:text-green-400">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-green-400">
-            About Us
-          </Link>
-          <Link to="/login" className="block bg-green-400 text-black px-4 py-2 rounded hover:bg-green-500 transition">
+          <MyLink to={"/"}>Home</MyLink>
+
+          <MyLink to={"/about"} >About us</MyLink>
+          <MyLink to={"/contact"} >Contact</MyLink>
+          
+          <Link to="/login" className="block bg-green-400 text-white px-4 py-2 rounded hover:bg-green-500 transition">
             Login
           </Link>
-          <Link to="/register" className="block bg-green-400 text-black px-4 py-2 rounded hover:bg-green-500 transition">
-            Register
+          <Link to="/register" className="block bg-green-400 text-white px-4 py-2 rounded hover:bg-green-500 transition">
+            Registration
           </Link>
         </div>
 
@@ -56,6 +56,13 @@ const Navbar = () => {
             About Us
           </Link>
           <Link
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className="block hover:text-green-400"
+          >
+            Contact
+          </Link>
+          <Link
             to="/login"
             onClick={() => setIsOpen(false)}
             className="block hover:text-green-400"
@@ -67,7 +74,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="block hover:text-green-400"
           >
-            Register
+            Registration
           </Link>
         </div>
       )}

@@ -6,6 +6,8 @@ import MainLayouts from "../Layouts/MainLayouts";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import About from "../Pages/About";
+import ErrorPage from "../Pages/ErrorPage";
+import Contact from "../Pages/Contact";
 
 
 const router = createBrowserRouter([
@@ -25,9 +27,17 @@ const router = createBrowserRouter([
       {
         path:"/about",
         element:<About />
-      }
+      },
+      {
+        path:"/contact",
+        element:<Contact />
+      },
     ],
   },
+  {
+    path:'/*',
+    element:<ErrorPage />
+  }
 ]);
 
 export default router;

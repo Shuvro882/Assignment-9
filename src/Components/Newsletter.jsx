@@ -2,7 +2,7 @@ import React from 'react';
 
 const Newsletter = () => {
     return (
-        <section className="bg-black text-white py-12 px-6 text-center">
+        <section className="bg-gray-300 text-black py-12 px-6 text-center">
       <h2 className="text-2xl font-bold mb-4">
         Subscribe to our Newsletter
       </h2>

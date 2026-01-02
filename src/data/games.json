@@ -6,7 +6,7 @@
     "category": "FPS",
     "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
     "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps.",
-    "ratings": 4.5,
+    "ratings": 5,
     "developer": "Krafton"
   },
   {
@@ -16,7 +16,7 @@
     "category": "Adventure",
     "downloadLink": "https://store.steampowered.com/app/367520/Hollow_Knight/",
     "description": "A beautifully hand-drawn indie adventure set in a mysterious underground world filled with insects and heroes.",
-    "ratings": 4.8,
+    "ratings": 4,
     "developer": "Team Cherry"
   },
   {
@@ -42,11 +42,11 @@
   {
     "id": "5",
     "title": "Among Us",
-    "coverPhoto": "https://i.ibb.co/7Qyc1X5/among-us.jpg",
+    "coverPhoto": "https://i.ibb.co.com/fGMT8LLz/Among-Us.jpg",
     "category": "Multiplayer",
     "downloadLink": "https://www.innersloth.com/gameAmongUs.php",
     "description": "A social deduction game where crewmates complete tasks and impostors try to sabotage them.",
-    "ratings": 4.3,
+    "ratings": 4.8,
     "developer": "InnerSloth"
   },
   {
@@ -66,7 +66,7 @@
     "category": "Roguelike",
     "downloadLink": "https://store.steampowered.com/app/1145360/Hades/",
     "description": "Battle out of the Underworld in this action-packed roguelike dungeon crawler.",
-    "ratings": 4.9,
+    "ratings": 3.8,
     "developer": "Supergiant Games"
   },
   {

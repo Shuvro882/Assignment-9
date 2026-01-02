@@ -24,7 +24,7 @@ const PopularGames = () => {
             <img
               src={game.coverPhoto}
               alt={game.title}
-              className="h-40 w-full object-cover rounded-t"
+              className="h-60 w-full object-cover rounded-t"
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{game.title}</h3>

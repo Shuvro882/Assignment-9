@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-  <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
+        <footer className="footer footer-horizontal footer-center bg-black text-base-content p-10">
+  <nav className="grid grid-flow-col gap-4 text-white">
+    <Link to={'/about'} className="link link-hover">About us</Link>
+    <Link to={'/contact'} className="link link-hover">Contact</Link>
+    
   </nav>
-  <nav>
+  <nav className='text-white'>
     <div className="grid grid-flow-col gap-4">
       <a>
         <svg
@@ -44,7 +46,7 @@ const Footer = () => {
       </a>
     </div>
   </nav>
-  <aside>
+  <aside className='text-white'>
     <p>Copyright © {new Date().getFullYear()} - All right reserved by Game Hub</p>
   </aside>
 </footer>

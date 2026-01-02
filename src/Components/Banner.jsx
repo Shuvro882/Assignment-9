@@ -20,13 +20,21 @@ const Banner = () => {
     setCurrent((current - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative w-full h-[60vh] min-h-[300px] max-h-[550px] overflow-hidden">
-      {/* Slide Image */}
-      <img
-        src={game.coverPhoto}
-        alt={game.title}
-        className="w-full h-full object-cover transition duration-500"
-      />
+    <div className="relative w-full h-[480px] md:h-[520px] overflow-hidden">
+  <img
+    src={game.coverPhoto}
+    alt={game.title}
+    className="
+      w-full h-full 
+      object-cover 
+      brightness-110 
+      contrast-110 
+      saturate-125
+    "
+  />
+
+  {/* Dark gradient for text readability */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
       {/* Overlay Text */}
       <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
