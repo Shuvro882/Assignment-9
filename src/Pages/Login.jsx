@@ -1,4 +1,7 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { GoogleAuthProvider,
+   signInWithEmailAndPassword,
+   signInWithPopup,
+   signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
@@ -13,7 +16,8 @@ const googleProvider = new GoogleAuthProvider();
 const Login = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
-
+ 
+  
   const handleSignin = (e) =>{
     e.preventDefault();
     const email = e.target.email.value;
@@ -33,7 +37,7 @@ const Login = () => {
       toast.error(e.message)
     });
   }
-console.log(user);
+console.log();
   
   const handleGoogleLogin =()=>{
     signInWithPopup(auth, googleProvider)
@@ -57,6 +61,8 @@ console.log(user);
       toast.error(e.message);
      });
     };
+  
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-300 via-green-500 to-green-800 flex items-center font-sans text-base">
@@ -113,13 +119,18 @@ console.log(user);
                   </span>
                   </div>
 
-                  <div className="text-left">
-                    <a className="text-sm text-green-700 hover:underline">
-                      Forgot password?
-                    </a>
-                  </div>
+                  
+                    <Link
+                    to="/forget-password"
+                    className="text-sm text-green-700 hover:underline text-left"
+                    >
+                     Forgot password?
+                    </Link>
+
+
 
                   <button className="btn w-full bg-green-600 hover:bg-green-700 text-white font-semibold text-base">
+                    
                     Login
                   </button>
 

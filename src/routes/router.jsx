@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import About from "../Pages/About";
 import ErrorPage from "../Pages/ErrorPage";
 import Contact from "../Pages/Contact";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path:"/contact",
         element:<Contact />
       },
+      {
+      path: "/forget-password",
+  element: <ForgetPassword />
+}
     ],
   },
   {

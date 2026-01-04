@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { auth } from '../firebase/firebase.config';
@@ -11,10 +11,12 @@ const Register = () => {
 
     const handleRegister = (e) =>{
         e.preventDefault();
+        const displayName = e.target.name.value;
+        const photoURL = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-      console.log('Registration entered',{email, password});
+      console.log('Registration entered',{email, password,displayName,photoURL});
     //   console.log(password.length);
     //   if(password.length < 6){
     //     toast.error("Password should be at least 6 digit");
@@ -32,8 +34,16 @@ const Register = () => {
 
       createUserWithEmailAndPassword(auth, email, password)
       .then(res=> {
-          console.log(res);
-          toast.success("Registration Successful");
+          updateProfile(res.user, {
+            displayName,
+            photoURL
+          }).then((res) => {
+             console.log(res);
+             toast.success("Registration successful");
+          })
+          .catch((e)=>{
+            toast.error(e.message);
+          });
       })
       .catch((e) => {
         console.log(e);
@@ -64,6 +74,7 @@ const Register = () => {
                     <label className="label font-semibold text-green-800">Name</label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Name"
                     className="input input-bordered w-full border-green-300 focus:border-green-500"
                   />
@@ -73,6 +84,7 @@ const Register = () => {
                     <label className="label font-semibold text-green-800">Photo URL</label>
                   <input
                     type="text"
+                    name="photo"
                     placeholder="Photo URL"
                     className="input input-bordered w-full border-green-300 focus:border-green-500"
                   />
