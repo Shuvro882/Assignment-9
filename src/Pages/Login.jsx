@@ -1,7 +1,63 @@
-import React from 'react';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import React, { useState } from 'react';
+import { FaEye } from 'react-icons/fa';
+import { IoEyeOff } from 'react-icons/io5';
 import { Link } from 'react-router';
+import { auth } from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
+
+
+
+const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
+  const [user, setUser] = useState(null);
+  const [show, setShow] = useState(false);
+
+  const handleSignin = (e) =>{
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log({email,password});
+    
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((res) => {
+      console.log(res);
+      setUser(res.user);
+      toast.success("Signin successful");
+    })
+    .catch((e) => {
+      console.log(e);
+      toast.error(e.message)
+    });
+  }
+console.log(user);
+  
+  const handleGoogleLogin =()=>{
+    signInWithPopup(auth, googleProvider)
+    .then((res) => {
+      console.log(res);
+      setUser(res.user);
+      toast.success("Signin successful");
+    })
+    .catch((e) => {
+      console.log(e);
+      toast.error(e.message)
+    });
+  };
+
+  const handleLogout = () => {
+     signOut(auth).then(() =>{
+      toast.success("Signout successful");
+      setUser(null);
+     })
+     .catch((e)=> {
+      toast.error(e.message);
+     });
+    };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-300 via-green-500 to-green-800 flex items-center font-sans text-base">
       <div className="container mx-auto px-6">
@@ -20,21 +76,42 @@ const Login = () => {
           <div className="lg:w-1/2 flex justify-center">
             <div className="card w-full max-w-sm bg-green-50/90 backdrop-blur shadow-2xl border border-green-300">
               <div className="card-body">
-                <fieldset className="space-y-3">
+                
+                {user ? (
+                 <div className='text-center space-y-3'>
+                  <img src={user.photoURL || "http://via.placeholder.com/88"} 
+                  className='h-20 w-20 rounded-full mx-auto' />
+                 <h2 className='text-xl font-semibold'>{user.displayName}</h2>
+                 <p className='text-black'>{user.email}</p>
+                 <button onClick={handleLogout} className="btn w-full bg-green-600 hover:bg-green-700 text-white font-semibold text-base">
+                    Log out
+                  </button>
+                 </div>
+                ) : 
+                (<form onSubmit={handleSignin} className="space-y-3">
 
-                  <label className="label font-semibold text-green-800">Email</label>
+                  <div>
+                    <label className="label font-semibold text-green-800">Email</label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email"
                     className="input input-bordered w-full border-green-300 focus:border-green-500"
                   />
+                  </div>
 
-                  <label className="label font-semibold text-green-800">Password</label>
+                  <div className='relative'>
+                    <label className="label font-semibold text-green-800">Password</label>
                   <input
-                    type="password"
+                    type={show ? "text" : "password"}
+                    name="password"
                     placeholder="Password"
                     className="input input-bordered w-full border-green-300 focus:border-green-500"
                   />
+                  <span onClick={()=> setShow(!show)} className='absolute right-2 top-8 z-50'>
+                    {show ? <FaEye /> : <IoEyeOff />}
+                  </span>
+                  </div>
 
                   <div className="text-left">
                     <a className="text-sm text-green-700 hover:underline">
@@ -54,7 +131,7 @@ const Login = () => {
                   </div>
 
                   {/* Google */}
-                  <button className="flex items-center justify-center gap-2 w-full bg-white border text-gray-800 py-2 font-semibold hover:bg-gray-100">
+                  <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-2 w-full bg-white border text-gray-800 py-2 font-semibold hover:bg-gray-100">
                     <img
                       src="https://www.svgrepo.com/show/475656/google-color.svg"
                       alt="google"
@@ -70,7 +147,7 @@ const Login = () => {
                     </Link>
                   </p>
 
-                </fieldset>
+                </form>)}
               </div>
             </div>
           </div>

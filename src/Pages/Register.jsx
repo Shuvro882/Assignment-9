@@ -14,18 +14,18 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-      console.log('sign up entered',{email, password});
+      console.log('Registration entered',{email, password});
     //   console.log(password.length);
     //   if(password.length < 6){
     //     toast.error("Password should be at least 6 digit");
     //     return;
     //   }
 
-      const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
       
       if(!regExp.test(password)){
         toast.error(
-    "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
+    "Password must be at least 6 characters long and include uppercase, lowercase, number, and special character."
       );
       return;
       }
