@@ -2,13 +2,25 @@ import { useContext, useState } from "react";
 import { Link } from "react-router";
 import MyLink from "./MyLink";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
    
-  const {user} = useContext(AuthContext);
+  const {user, signOutUserFunc,setUser} = useContext(AuthContext);
   console.log(user);
+
+  const handleLogout = () => {
+     signOutUserFunc()
+     .then(() =>{
+      toast.success("Signout successful");
+      setUser(null);
+     })
+     .catch((e)=> {
+      toast.error(e.message);
+     });
+    }; 
 
   return (
     <nav className="bg-black text-white px-4 py-3">
@@ -20,18 +32,47 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-4">
-          <MyLink to={"/"}>Home</MyLink>
+        <MyLink to="/">Home</MyLink>
+        <MyLink to="/about">About us</MyLink>
+        <MyLink to="/contact">Contact</MyLink>
 
-          <MyLink to={"/about"} >About us</MyLink>
-          <MyLink to={"/contact"} >Contact</MyLink>
-          
-          <Link to="/login" className="block bg-green-400 text-white px-4 py-2 rounded hover:bg-green-500 transition">
-            Login
-          </Link>
-          <Link to="/register" className="block bg-green-400 text-white px-4 py-2 rounded hover:bg-green-500 transition">
-            Registration
-          </Link>
-        </div>
+        {user ? (
+        <div className="flex items-center gap-3">
+        {/* User Avatar */}
+        <Link to= "/contact">
+        <img
+        src={user.photoURL || "https://via.placeholder.com/40"}
+        alt="User"
+        className="h-10 w-10 rounded-full object-cover border-2 border-green-500"
+        />
+        </Link>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md text-sm font-medium transition"
+      >
+        Logout
+      </button>
+    </div>
+  ) : (
+    <div className="flex items-center gap-2">
+      <Link
+        to="/login"
+        className="bg-green-500 text-white px-4 py-2 rounded-md text-sm hover:bg-green-600 transition"
+      >
+        Login
+      </Link>
+      <Link
+        to="/register"
+        className="bg-green-500 text-white px-4 py-2 rounded-md text-sm hover:bg-green-600 transition"
+      >
+        Register
+      </Link>
+    </div>
+  )}
+</div>
+
 
         {/* Mobile Menu Button */}
         <button

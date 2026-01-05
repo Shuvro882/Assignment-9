@@ -13,7 +13,6 @@ const Login = () => {
   const {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
-    signOutUserFunc,
     user,
     setUser
   } = useContext(AuthContext);
@@ -52,16 +51,7 @@ console.log();
     });
   };
 
-  const handleLogout = () => {
-     signOutUserFunc()
-     .then(() =>{
-      toast.success("Signout successful");
-      setUser(null);
-     })
-     .catch((e)=> {
-      toast.error(e.message);
-     });
-    };
+  
   
 
 
@@ -83,19 +73,7 @@ console.log();
           <div className="lg:w-1/2 flex justify-center">
             <div className="card w-full max-w-sm bg-green-50/90 backdrop-blur shadow-2xl border border-green-300">
               <div className="card-body">
-                
-                {user ? (
-                 <div className='text-center space-y-3'>
-                  <img src={user.photoURL || "http://via.placeholder.com/88"} 
-                  className='h-20 w-20 rounded-full mx-auto' />
-                 <h2 className='text-xl font-semibold'>{user.displayName}</h2>
-                 <p className='text-black'>{user.email}</p>
-                 <button onClick={handleLogout} className="btn w-full bg-green-600 hover:bg-green-700 text-white font-semibold text-base">
-                    Log out
-                  </button>
-                 </div>
-                ) : 
-                (<form onSubmit={handleSignin} className="space-y-3">
+                 <form onSubmit={handleSignin} className="space-y-3">
 
                   <div>
                     <label className="label font-semibold text-green-800">Email</label>
@@ -159,7 +137,7 @@ console.log();
                     </Link>
                   </p>
 
-                </form>)}
+                </form>
               </div>
             </div>
           </div>
