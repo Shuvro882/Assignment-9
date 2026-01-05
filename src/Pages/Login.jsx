@@ -13,7 +13,7 @@ const Login = () => {
   const {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
-    user,
+    setLoading,
     setUser
   } = useContext(AuthContext);
   
@@ -28,6 +28,7 @@ const Login = () => {
     signInWithEmailAndPasswordFunc(email, password)
     .then((res) => {
       console.log(res);
+      setLoading(false);
       setUser(res.user);
       toast.success("Signin successful");
     })
@@ -42,6 +43,7 @@ console.log();
     signInWithEmailFunc()
     .then((res) => {
       console.log(res);
+      setLoading(false);
       setUser(res.user);
       toast.success("Signin successful");
     })

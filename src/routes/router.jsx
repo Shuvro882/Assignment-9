@@ -9,6 +9,7 @@ import About from "../Pages/About";
 import ErrorPage from "../Pages/ErrorPage";
 import Contact from "../Pages/Contact";
 import ForgetPassword from "../Pages/ForgetPassword";
+import GameDetails from "../Pages/GameDetails";
 
 
 const router = createBrowserRouter([
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
       },
       {
       path: "/forget-password",
-  element: <ForgetPassword />
-}
+      element: <ForgetPassword />
+      },
+      {
+        path: "/games/:id",
+        element: <GameDetails />
+      }
     ],
   },
   {

@@ -10,7 +10,11 @@ import { AuthContext } from '../context/AuthContext';
 const Register = () => {
     const [show, setShow] = useState(false);
     
-    const {createUserWithEmailAndPasswordFunc, updateProfileFunc} = useContext(AuthContext);
+    const {
+      createUserWithEmailAndPasswordFunc,
+      updateProfileFunc,
+      setLoading,
+      } = useContext(AuthContext);
 
     const handleRegister = (e) =>{
         e.preventDefault();
@@ -42,6 +46,7 @@ const Register = () => {
             photoURL)
           .then((res) => {
              console.log(res);
+             setLoading(false);
              toast.success("Registration successful");
           })
           .catch((e)=>{
