@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router";
 import MyLink from "./MyLink";
+import { AuthContext } from "../context/AuthContext";
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+   
+  const {user} = useContext(AuthContext);
+  console.log(user);
 
   return (
     <nav className="bg-black text-white px-4 py-3">

@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { Link } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 const ForgetPassword = () => {
+  const {sendPassResetEmailFunc} = useContext(AuthContext);
+
   const emailRef = useRef(null);
 
   const handleResetPassword = (e) => {
@@ -16,7 +19,7 @@ const ForgetPassword = () => {
       return;
     }
 
-    sendPasswordResetEmail(auth, email)
+    sendPassResetEmailFunc(email)
       .then(() => {
         toast.success("Password reset email sent. Check your inbox.");
       })

@@ -1,13 +1,16 @@
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import React, { useState } from 'react';
+import { updateProfile } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
+import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
     const [show, setShow] = useState(false);
+    
+    const {createUserWithEmailAndPasswordFunc, updateProfileFunc} = useContext(AuthContext);
 
     const handleRegister = (e) =>{
         e.preventDefault();
@@ -32,12 +35,12 @@ const Register = () => {
       return;
       }
 
-      createUserWithEmailAndPassword(auth, email, password)
-      .then(res=> {
-          updateProfile(res.user, {
-            displayName,
-            photoURL
-          }).then((res) => {
+      // createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPasswordFunc(email,password)
+      .then((res)=> {
+          updateProfileFunc(displayName,
+            photoURL)
+          .then((res) => {
              console.log(res);
              toast.success("Registration successful");
           })
