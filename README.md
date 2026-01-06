@@ -1,16 +1,44 @@
-# React + Vite
+# 🎮 GameHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+GameHub is a game browsing web application where users can explore popular games, view game details, and manage their profiles after logging in. The project focuses on authentication, protected routes, and a clean responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Website
+🔗 https://your-live-site-url.com
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
+- User authentication using Email & Password
+- Google login support
+- Protected routes for private pages
+- Responsive navbar (mobile & desktop)
+- User profile page with name, email, and photo
+- Loading spinners and toast notifications
+- Clean and modern UI using Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## NPM Packages Used
+- react
+- react-router
+- firebase
+- react-toastify
+- react-spinners
+- tailwindcss
+- daisyui
+
+---
+
+## Technologies Used
+- React
+- Firebase Authentication
+- Tailwind CSS
+- React Router DOM
+
+---
+
+## Author
+**Shuvro Saha**
