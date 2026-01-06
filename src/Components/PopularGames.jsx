@@ -35,7 +35,7 @@ const PopularGames = () => {
                 Developer: {game.developer}
               </p>
               <Link to={`/games/${game.id}`}>
-              <button className="mt-3 bg-green-500 px-4 py-2 rounded cursor-cell">
+              <button className="mt-3 bg-green-500 px-4 py-2 rounded cursor-pointer">
               View Details
               </button>
               </Link>

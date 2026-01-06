@@ -6,7 +6,7 @@ GameHub is a game browsing web application where users can explore popular games
 ---
 
 ## Live Website
-🔗 https://your-live-site-url.com
+https://my-gaming-hub.netlify.app/
 
 ---
 
