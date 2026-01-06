@@ -49,7 +49,7 @@ const Navbar = () => {
         user ? (
         <div className="flex items-center gap-3">
         {/* User Avatar */}
-        <Link to= "/contact">
+        <Link to= "/MyProfile">
         <img
         src={user.photoURL || "https://via.placeholder.com/40"}
         alt="User"

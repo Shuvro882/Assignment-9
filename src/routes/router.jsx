@@ -10,6 +10,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Contact from "../Pages/Contact";
 import ForgetPassword from "../Pages/ForgetPassword";
 import GameDetails from "../Pages/GameDetails";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import MyProfile from "../Pages/MyProfile";
 
 
 const router = createBrowserRouter([
@@ -40,7 +42,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/games/:id",
-        element: <GameDetails />
+        element:
+        <PrivateRoute>
+          <GameDetails />
+        </PrivateRoute>
+      },
+      {
+        path: "/MyProfile",
+        element:
+        <PrivateRoute>
+          <MyProfile />
+        </PrivateRoute>
       }
     ],
   },

@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../context/AuthContext';
 
@@ -14,8 +14,19 @@ const Login = () => {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
     setLoading,
-    setUser
+    setUser,
+    user
   } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state || "/" ;
+  const navigate = useNavigate();
+
+  if(user){
+     navigate("/");
+     return;
+  }
+  
+  console.log(location)
   
   const handleSignin = (e) =>{
     e.preventDefault();
@@ -31,6 +42,7 @@ const Login = () => {
       setLoading(false);
       setUser(res.user);
       toast.success("Signin successful");
+      navigate(from);
     })
     .catch((e) => {
       console.log(e);
@@ -46,6 +58,8 @@ console.log();
       setLoading(false);
       setUser(res.user);
       toast.success("Signin successful");
+      navigate(from);
+      
     })
     .catch((e) => {
       console.log(e);
